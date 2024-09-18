@@ -18,11 +18,9 @@ import cancel from '../../icons_FEtask/Cancelled.svg'
 const DashBoard = () => {
   const isStatus = localStorage.getItem("group") === "status";
   const isPriority = localStorage.getItem("group") === "priority";
-  console.log("stat", isStatus, "prio", isPriority);
   const { selectedData, user } = useSelector(
     (state) => state.SelectDataReducer
   );
-  console.log("rere", user);
   return (
     selectedData && (
       <div
@@ -43,7 +41,6 @@ const DashBoard = () => {
                     <div
                       className="imageContainer relative"
                       style={{
-
                         width: "10px",
                         height: "15px",
                         display: "inline-block",
@@ -114,6 +111,7 @@ const DashBoard = () => {
                     <Card
                       id={element.id}
                       title={element.title}
+                      userId={element.userId}
                       tag={element.tag}
                       status={element.status}
                       priority={element.priority}

@@ -10,27 +10,75 @@ import urgent from '../../icons_FEtask/SVG - Urgent Priority colour.svg'
 import low from '../../icons_FEtask/Img - Low Priority.svg';
 import medium from '../../icons_FEtask/Img - Medium Priority.svg';
 import high from '../../icons_FEtask/Img - High Priority.svg';
-const Card = ({ id, title, tag, status, priority }) => {
+
+
+const userLetters = {
+  "usr-1": "AS",
+  "usr-2": "Y",
+  "usr-3": "SK",
+  "usr-4": "R",
+  "usr-5": "S",
+};
+
+const userColors = {
+  "usr-1": "purple", 
+  "usr-2": "blue",
+  "usr-3": "green",
+  "usr-4": "red",
+  "usr-5": "orange",
+};
+
+
+const Card = ({ id, title,userId, tag, status, priority }) => {
+  
   const isStatus = localStorage.getItem("group") === "status";
   const isPriority = localStorage.getItem("group") === "priority";
   const statusOrder = ['Backlog', 'Todo', 'In progress', 'Done'];
+
+  const randomLetters = userLetters[userId] || "";
+  const randomColor = userColors[userId] || "#FFFFFF";
+
   const getStatusIndex = (status) => {
     return statusOrder.indexOf(status);
   };
   return (
     <div className="cardContainer flex-gap-10" style={{ gap: "5px" }}>
-      <div className="cardHeading flex-sb">
+       <div className="cardHeading flex-sb">
         <span style={{ textTransform: "uppercase" }} className="color-grey">
           {id}
         </span>
+        {localStorage.getItem("group") !== "user" &&
         <div
           className="imageContainer relative"
-          style={{ width: "30px", height: "30px" }}
+          style={{
+            width: "30px",
+            height: "30px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            borderRadius: "50%",
+            backgroundColor: randomColor,
+            color: "#fff",
+            fontSize: "14px",
+            fontWeight: "bold",
+          }}
         >
-         
-         <FaUserCircle  style={{ width: "95%", height: "95%", borderRadius: "50%" }} icon="fa-regular fa-user" />
+         <div
+            style={{
+              width: "95%",
+              height: "95%",
+              borderRadius: "50%",
+              backgroundColor: randomColor,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {randomLetters}
+          </div>
           <div className="showStatus"></div>
         </div>
+      }
       </div>
       <div className="cardTitle" style={{ fontWeight: 200 }}>
         {!isStatus &&
