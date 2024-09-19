@@ -3,6 +3,8 @@ import list from '../../icons_FEtask/Display.svg'
 import "./NavBar.css";
 import { useSelector, useDispatch } from "react-redux";
 import { selectData } from "../../Actions/DataAction";
+import down from '../../icons_FEtask/down.svg'
+
 localStorage.setItem("group", "status");
 localStorage.setItem("order", "priority");
 const getOrder = () => {
@@ -60,7 +62,10 @@ const NavBar = () => {
           onClick={() => setDisplayOnClick(!displayOnClick)}
         >
           {" "}
-          <img src={list} alt="list" /> Display
+          <div style={{display:"flex"}}>
+            <img src={list} alt="list" style={{padding:"5px"}}/> Display
+            <img src={down} alt="down" />
+          </div>
         </button>
         {displayOnClick && (
           <>

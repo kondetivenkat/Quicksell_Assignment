@@ -1,6 +1,5 @@
 import React from "react";
 import "./Card.css";
-import { FaUserCircle } from "react-icons/fa";
 import backlog from '../../icons_FEtask/Backlog.svg'
 import inprogress from '../../icons_FEtask/in-progress.svg'
 import done from '../../icons_FEtask/Done.svg'
@@ -10,7 +9,7 @@ import urgent from '../../icons_FEtask/SVG - Urgent Priority colour.svg'
 import low from '../../icons_FEtask/Img - Low Priority.svg';
 import medium from '../../icons_FEtask/Img - Medium Priority.svg';
 import high from '../../icons_FEtask/Img - High Priority.svg';
-
+import dot from '../../icons_FEtask/3 dot menu.svg'
 
 const userLetters = {
   "usr-1": "AS",
@@ -96,7 +95,7 @@ const Card = ({ id, title,userId, tag, status, priority }) => {
                 : (
                   <img src={close} alt="close" />
                 ))}
-        <span style={{ margin: "0.2px" }}>{title}</span>
+        <span style={{ margin: "0.2px",padding:"5px"}}>{title}</span>
       </div>
       <div className="cardTags">
         {!isPriority ? (

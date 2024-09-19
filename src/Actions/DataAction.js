@@ -1,7 +1,6 @@
 import axios from "axios";
 import Card from "../components/Card/Card";
 
-// Define action types as constants
 const DATA_REQUEST = "DATA_REQUEST";
 const DATA_SUCCESS = "DATA_SUCCESS";
 const DATA_FAILURE = "DATA_FAILURE";
@@ -12,7 +11,7 @@ export const fetchAllData = () => async (dispatch) => {
   try {
     dispatch({ type: DATA_REQUEST });
     const { data } = await axios.get(
-      "https://api.quicksell.co/v1/internal/frontend-assignment/"
+      "https://api.quicksell.co/v1/internal/frontend-assignment"
     );
     dispatch({ type: DATA_SUCCESS, payload: data });
   } catch (error) {
@@ -57,7 +56,7 @@ export const selectData =
           });
         });
       } else {
-        let prior_list = ["No priority", "Urgent", "High", "Medium", "Low"];
+        let prior_list = ["No priority", "Low", "Medium", "High", "Urgent"];
         prior_list.forEach((element, index) => {
           arr = allTickets.filter((fElement) => {
             return index === fElement.priority;

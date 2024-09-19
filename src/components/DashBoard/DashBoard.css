@@ -24,6 +24,23 @@
   display: flex;
   justify-content: space-between;
 }
+.leftView{
+  display: flex;
+  gap:7px
+}
+.initialsCircle {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  color: white; /* Ensure initials are visible */
+  font-size: 16px; /* Adjust font size for visibility */
+  font-weight: bold;
+}
 
 /* Responsive styles */
 @media screen and (max-width: 1200px) {

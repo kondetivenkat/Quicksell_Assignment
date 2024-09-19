@@ -15,6 +15,7 @@ import nopriority from '../../icons_FEtask/No-priority.svg'
 import add from '../../icons_FEtask/add.svg'
 import cancel from '../../icons_FEtask/Cancelled.svg'
 
+
 const DashBoard = () => {
   const isStatus = localStorage.getItem("group") === "status";
   const isPriority = localStorage.getItem("group") === "priority";
@@ -39,14 +40,9 @@ const DashBoard = () => {
                 <div className="leftView">
                   {user ? (
                     <div
-                      className="imageContainer relative"
-                      style={{
-                        width: "10px",
-                        height: "15px",
-                        display: "inline-block",
-                      }}
-                    >
-                    </div>
+                    className="imageContainer relative"
+                  >
+                  </div>
                   ) : isStatus ? (
                     <div
                       className="cardTitle"
@@ -58,7 +54,7 @@ const DashBoard = () => {
                       }}
                     >
                       {element[index].title === "Backlog" ? (
-                       <img src={backlog} alt="Loader" style={{ width: '13px', height: '13px' }} />                  
+                       <img src={backlog} alt="Loader" style={{ width: '13px' }} />                  
                       )
                         : element[index].title === "Todo" ? (
                           <img src={todo}
@@ -78,26 +74,27 @@ const DashBoard = () => {
                       style={{
                         width: "35px",
                         height: "30px",
-                        display: "inline-block",
+                        display: "inline-block"
                       }}
                     >
                       {element[index].title === "Low" ? (
-                        <img src={low} alt="Low Priority" style={{ width: '24px', height: '24px' }} />
+                        <img src={low} alt="Low Priority" style={{ width: '24px', height: '24px'}} />
                       ) : element[index].title === "Medium" ? (
                         <img src={medium} alt="Medium Priority" style={{ width: '24px', height: '24px' }} />
                       ) : element[index].title === "High" ? (
                         <img src={high} alt="High Priority" style={{ width: '24px', height: '24px' }} />
                       ): element[index].title === "Urgent" ? (
-                        <img src={urgent} alt="urgent" />
+                        <img src={urgent} alt="urgent" style={{ width: '24px', height: '24px' }}/>
                       ) : (
-                        <p></p>
+                        <img src={nopriority} alt="priority" style={{ width: '24px', height: '24px' }}/>
                       )}
                     </div>
                   ) : (
-                    <img src={nopriority} alt="priority"/>
-                  )}{" "}
-                  <span>
-                    {element[index]?.title} {element[index].value?.length}
+                    <img src={nopriority} alt="priority" style={{ width: '24px', height: '24px' }}/>
+                  )}
+                  
+                  <span style={{fontSize:"13px"}}>
+                    {element[index].title} {element[index].value?.length}
                   </span>
                 </div>
                 <div className="rightView">
@@ -139,13 +136,10 @@ const DashBoard = () => {
                 </div>{" "}
                 <span style={{ fontSize: "13px", fontWeight: "lighter" }}>Done</span> <span style={{ fontSize: "13px", color: "#8F9997" }}>0</span>
               </div>
-              <div className="rightView">
-              <img src={add} />{" "}
-                <span style={{ letterSpacing: "2px" }}>...</span>
-              </div>
+              
             </div>
             <div className="dashCardHeading flex-sb">
-              <div className="leftView" style={{ fontSize: "15px", marginRight: "60px", wordSpacing: "4px" }}>
+              <div className="leftView" style={{ fontSize: "13px", marginRight: "60px", wordSpacing: "4px" }}>
                 <div
                   className="cardTitle"
                   style={{
@@ -158,10 +152,6 @@ const DashBoard = () => {
                   <img src={cancel}style={{ color: "grey" }} />
                 </div>{" "}
                 <span style={{ fontSize: "13px", fontWeight: "lighter" }}>Canceled</span> <span style={{ fontSize: "13px", color: "#8F9997" }}>0</span>
-              </div>
-              <div className="rightView">
-                <img src={add} />{" "}
-                <span style={{ letterSpacing: "2px"}}>...</span>
               </div>
             </div>
           </>
